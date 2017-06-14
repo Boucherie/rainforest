@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to products_path
+      redirect_to product_path(@product.id)
     else
       redirect_to new_product_path
     end
@@ -33,4 +33,5 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price)
+  end
 end

@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to @product
+      flash[:notice] = "You successfully updated a product!"
     else
       redirect_back_or_to @product
     end
@@ -40,6 +41,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+    flash[:notice] = "You successfully deleted a product!"
   end
 
   def product_params

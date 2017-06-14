@@ -1,7 +1,5 @@
 <%= form_for product do |f| %>
 
-
-
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -21,13 +19,14 @@
     <%= f.submit %>
   </p>
 
-    <% if @product.errors.any? %>
-      <div>
-        <ul>
-          <%= @product.errors.full_messages.each do |error_msg| %>
-            <li><p><%= error_msg %><p></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <% end %>
+
+  <% if @product.errors.any? %>
+    <div>
+      <ul>
+        <%= @product.errors.full_messages.each do |error_msg| %>
+          <li><p><%= error_msg %><p></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
